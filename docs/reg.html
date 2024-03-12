@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>211_Home page</title>
+    <link rel="stylesheet" href="first.css">
+        <style>
+            .reg{
+                width:450px;
+                height:450px;
+                margin-left:200px;
+                margin-top:50px;
+                background-color:darkgray;
+                font-size:20px;
+                border-width:10px;
+            }
+        </style>
+</head>
+
+<body>
+    <form action="https://www.geeksforgeeks.com" onsubmit="return validateRegistration()">
+        <fieldset class="reg">
+            <legend><strong>Registration Form</strong></legend>
+            <p>
+                <label>User Name:</label>
+                <input type="text" id="regUsername" placeholder="Xyz" title="User name of at least 6 characters" required>
+            </p>
+            <p>
+                <label>Password:</label>
+                <input type="password" id="regPassword" placeholder="xyz123" title="Password of at least 8 characters" required>
+            </p>
+            <p>
+                <label>Confirm Password:</label>
+                <input type="password" id="confirmPassword" placeholder="xyz123" title="Confirm your password" required>
+            </p>
+            <p>
+                <label>Mobile Number:</label>
+                <input type="text" id="regMobile" placeholder="1234567890" title="Valid 10-digit mobile number" required>
+            </p>
+            <p>
+                <label>Date of Birth:</label>
+                <input type="date" placeholder="123" required>
+            </p>
+            <p>
+                <label>Email:</label>
+                <input type="email" id="regEmail" placeholder="example@domain.com" title="Valid email address" required>
+            </p>
+            <p>
+                <label>Gender:</label>
+                <label><input type="radio" name="gender" value="male" required> Male</label>
+                <label><input type="radio" name="gender" value="female" required> Female</label>
+            </p>
+            <p><input type="checkbox" checked>I accept terms and conditions</p>
+            <p style="margin-left:30px">
+                <button type="submit">Create an account</button>
+            </p>
+            <label>Already have an account?</label>
+            &nbsp;
+            <a href="login.html">Sign In</a>
+        </fieldset>
+    </form>
+    <script>
+        function validateRegistration() {
+            var username = document.getElementById("regUsername").value;
+            var password = document.getElementById("regPassword").value;
+            var confirmPassword = document.getElementById("confirmPassword").value;
+            var mobile = document.getElementById("regMobile").value;
+            var email = document.getElementById("regEmail").value;
+
+            // Pattern for username: [A-Z][a-zA-Z]{3,}\d{2,}
+            var usernamePattern = /^[A-Z][a-zA-Z]{3,}\d{2,}$/;
+
+            // Pattern for password: [a-z]{3,}\d{3,}
+            var passwordPattern = /^[a-z]{3,}\d{3,}$/;
+
+            // Pattern for a valid mobile number: [6-9]{1}\d{9}
+            var mobilePattern = /^[6-9]\d{9}$/;
+
+            // Pattern for a valid email address: [a-zA-Z]{5,}\d+@[a-zA-Z]+(\.com|\.co\.in|\.ac\.in)
+            var emailPattern = /^[a-zA-Z]{5,}\d+@[a-zA-Z]+(\.com|\.co\.in|\.ac\.in)$/;
+
+            // Check if at least one gender is selected
+            //var genderSelected = document.querySelector('input[name="gender"]:checked');
+
+            if (!usernamePattern.test(username)) {
+                window.alert("Invalid username format.");
+                return false;
+            }
+
+            if (!passwordPattern.test(password)) {
+                window.alert("Invalid password format. Password must be at least 8 characters long.");
+                return false;
+            }
+
+            if (password !== confirmPassword) {
+                window.alert("Passwords do not match.");
+                return false;
+            }
+
+            if (!mobilePattern.test(mobile)) {
+                window.alert("Invalid mobile number format. Please enter a valid mobile number.");
+                return false;
+            }
+
+            if (!emailPattern.test(email)) {
+                window.alert("Invalid email format. Please enter a valid email address.");
+                return false;
+            }
+
+            // if (!genderSelected) {
+            //     window.alert("Please select a gender.");
+            //     return false;
+            // }
+
+            return true; // Proceed with form submission
+        }
+    </script>
+</body>
+</html>

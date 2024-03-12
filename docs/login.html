@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="first.css">
+    </head> 
+    <body>
+        <form action="https://www.geeksforgeeks.com" onsubmit="return validateLogin()">
+            <fieldset>
+                <legend><strong>Login Form</strong></legend>
+                <p>
+                    <label>User Name:</label>
+                    <input type="text" id="regUsername" placeholder="Xyz" title="User name of at least 6 characters" required>
+                </p>
+                <p>
+                    <label>Password:</label>
+                    <input type="password" id="regPassword" placeholder="xyz123" title="Password of at least 8 characters" required>
+                </p>
+                <p>
+                    <label>Confirm Password:</label>
+                    <input type="password" id="confirmPassword" placeholder="xyz123" title="Confirm your password" required>
+                </p>
+                <p style="margin-left:10px">
+                    <input type="submit" value="Sign In">
+                    &nbsp;&nbsp;&nbsp;
+                    <a href="fg.html">forgot password?</a>
+                </p>
+                <label>Don't have an account?</label>
+                &nbsp;
+                <a href="reg.html">Sign Up</a>
+            </fieldset>
+        </form>
+        <script>
+            function validateLogin() {
+                var username = document.getElementById("regUsername").value;
+                var password = document.getElementById("regPassword").value;
+                var confirmPassword = document.getElementById("confirmPassword").value;
+
+                var usernamePattern = /^[A-Z][a-zA-Z]{3,}\d{2,}$/;
+                var passwordPattern = /^[a-z]{3,}\d{3,}$/;
+
+                if (!usernamePattern.test(username)) {
+                    window.alert("Invalid username format.");
+                    return false;
+                }
+
+                if (!passwordPattern.test(password)) {
+                    window.alert("Invalid password format.Password must be at least 8 characters long.");
+                    return false;
+                }
+
+                if (password !== confirmPassword) {
+                    window.alert("Passwords do not match.");
+                    return false;
+                }
+                return true; // Proceed with form submission
+            }
+        </script>
+    </body>
+</html>
