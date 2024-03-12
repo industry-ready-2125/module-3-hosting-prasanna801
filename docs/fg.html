@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+    <head>
+        <link rel="stylesheet" href="first.css">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <form action="https://www.geeksforgeeks.com">
+            <fieldset>
+                <legend><b>Creating new Password for LogIn</b></legend>
+                <p>
+                    <label>User Name:</label>
+                    <input type="text" placeholder="Xyz" title="user name of atleast 6 characters" pattern="[A-Z][a-zA-Z]{3,}[\d]{2,}"required>
+                </p>
+                <p>
+                    <label>Registered Mobile Number:</label>
+                    <input type="text" placeholder="0123456789" title="mobile number must be of 10 digits" pattern="[6-9]{1}[\d]{9}" required>
+                </p>
+                <p>
+                    <label>New Password:</label>
+                    <input type="password" placeholder="xyz123" title="password of atleast 8 characters" pattern="[a-zA-Z]{5,}[\d]{3,}"required>
+                </p>
+                <p>
+                    <label>Confirm Password:</label>
+                    <input type="password" placeholder="xyz123" title="password of atleast 8 characters" pattern="[a-zA-Z]{5,}[\d]{3,}"required>
+                </p>
+                <p style="margin-left:10px">
+                    <input type="submit" value="Sign In">
+                </p>
+            </fieldset>
+        </form>
+    </body>
+</html>
